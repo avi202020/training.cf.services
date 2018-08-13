@@ -1,0 +1,15 @@
+---
+applications:
+- name: training.cf.services
+  memory: 1024M 
+  instances: 1
+  path: target/training.cf.services-0.0.1-SNAPSHOT.jar
+  services:
+  - training-db-service
+  env:
+    SPRING_PROFILES_ACTIVE: cloud  
+    
+buildpack: https://github.com/cloudfoundry/java-buildpack.git
+
+env:
+  JBP_CONFIG_SPRING_AUTO_RECONFIGURATION: '{enabled: false}'

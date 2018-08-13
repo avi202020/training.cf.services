@@ -1,0 +1,10 @@
+---
+applications:
+- name: training.cf.services
+  memory: 1024M
+  instances: 1 
+  path: target/training.cf.services-0.0.1-SNAPSHOT.jar 
+  services:
+  - training-db-service  
+    
+buildpack: https://github.com/cloudfoundry/java-buildpack.git

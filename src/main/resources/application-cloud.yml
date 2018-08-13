@@ -1,0 +1,18 @@
+---
+management:            
+  endpoints:
+    enabled-by-default: false
+        
+spring:
+  datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    url: ${vcap.services.training-db-service.credentials.jdbcUrl}
+    username: ${vcap.services.training-db-service.credentials.username}
+    password: ${vcap.services.training-db-service.credentials.password}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+    show-sql: true    
