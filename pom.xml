@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.thingtrack</groupId>
@@ -9,7 +9,7 @@
 	<packaging>jar</packaging>
 
 	<name>training.cf.services</name>
-	<description>Demo project for Spring Boot</description>
+	<description>Training CF Service back-end</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -25,6 +25,7 @@
 	</properties>
 
 	<dependencies>
+		<!-- Spring Boot Dependencies -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
@@ -41,27 +42,19 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-cloud-connectors</artifactId>
 		</dependency>
-		
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<scope>runtime</scope>
-		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		
-		<!-- <dependency>
-        	<groupId>org.springframework.cloud</groupId>
-        	<artifactId>spring-cloud-spring-service-connector</artifactId>
-    	</dependency>
-    	<dependency>
-        	<groupId>org.springframework.cloud</groupId>
-        	<artifactId>spring-cloud-cloudfoundry-connector</artifactId>
-    	</dependency>-->
-    	    	
+		    	    
+		<!-- MySQL JDBC Connector -->		    	    
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+				    	    	
    		<!-- Swagger Documentation API -->
 		<dependency>
 		    <groupId>io.springfox</groupId>
@@ -97,12 +90,12 @@
 		    <version>1.5.20</version>
 		</dependency>
 				
+		<!-- Google Guava Tools  -->
 		<dependency>
 		    <groupId>com.google.guava</groupId>
 		    <artifactId>guava</artifactId>
 		    <version>26.0-jre</version>
-		</dependency>
-					    	
+		</dependency>					    	
 	</dependencies>
 
 	<build>
@@ -113,5 +106,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
 </project>

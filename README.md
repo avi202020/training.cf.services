@@ -1,2 +1,2 @@
 # training.cf.services
-Pivotal Developer Training Back-end
+Pivotal Developer Training Spring Boot back-end
