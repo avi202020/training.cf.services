@@ -3,6 +3,7 @@ package com.thingtrack.training.cf.services.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
+import org.springframework.context.annotation.Profile;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
@@ -32,6 +33,7 @@ import java.util.List;
 @Configuration
 @EnableSwagger2
 @Import(BeanValidatorPluginsConfiguration.class)
+@Profile({"dev"})
 public class SwaggerConfig extends WebMvcConfigurationSupport {
 	/* Configure Swagger API services */
     @Bean

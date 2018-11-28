@@ -22,6 +22,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
+		<sleuth.version>2.0.2.RELEASE</sleuth.version>		
 	</properties>
 
 	<dependencies>
@@ -47,7 +48,13 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		    	    
+				
+		<!-- Sleuth automatically adds trace interceptors -->
+    	<dependency>
+      		<groupId>org.springframework.cloud</groupId>
+      		<artifactId>spring-cloud-starter-sleuth</artifactId>
+      	</dependency>
+		    	        	    
 		<!-- MySQL JDBC Connector -->		    	    
 		<dependency>
 			<groupId>mysql</groupId>
@@ -98,6 +105,18 @@
 		</dependency>					    	
 	</dependencies>
 
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-sleuth</artifactId>
+                <version>${sleuth.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+    
 	<build>
 		<plugins>
 			<plugin>
