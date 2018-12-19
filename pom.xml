@@ -9,7 +9,7 @@
 	<packaging>jar</packaging>
 
 	<name>training.cf.services</name>
-	<description>Training CF Service back-end</description>
+	<description>Training CF Service Back-end</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -22,6 +22,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
+		<springfox.version>2.8.0</springfox.version>
 		<sleuth.version>2.0.2.RELEASE</sleuth.version>		
 	</properties>
 
@@ -45,16 +46,27 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>	
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
 				
-		<!-- Sleuth automatically adds trace interceptors -->
+		<!-- Sleuth distributed tracing for Spring Cloud -->
     	<dependency>
       		<groupId>org.springframework.cloud</groupId>
       		<artifactId>spring-cloud-starter-sleuth</artifactId>
       	</dependency>
-		    	        	    
+      					
+		<!-- JSON Web Token Authentication Java Implementation -->
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt</artifactId>
+			<version>0.9.0</version>
+		</dependency>
+    	              	    	        	    
 		<!-- MySQL JDBC Connector -->		    	    
 		<dependency>
 			<groupId>mysql</groupId>
@@ -62,47 +74,22 @@
 			<scope>runtime</scope>
 		</dependency>
 				    	    	
-   		<!-- Swagger Documentation API -->
+   		<!-- Springfox Swagger Implementation -->
 		<dependency>
 		    <groupId>io.springfox</groupId>
 		    <artifactId>springfox-swagger2</artifactId>
-		    <version>2.8.0</version>
+		    <version>${springfox.version}</version>
 		</dependency>
 		<dependency>
    			<groupId>io.springfox</groupId>
    			<artifactId>springfox-bean-validators</artifactId>
-   			<version>2.8.0</version>
+   			<version>${springfox.version}</version>
 		</dependency>		
 		<dependency>
 		    <groupId>io.springfox</groupId>
 		    <artifactId>springfox-swagger-ui</artifactId>
-		    <version>2.8.0</version>
-		    <scope>compile</scope>
-		</dependency>
-
-		<!-- Swagger Configuration API  -->
-		<dependency>
-		    <groupId>io.swagger</groupId>
-		    <artifactId>swagger-core</artifactId>
-		    <version>1.5.20</version>
-		</dependency>
-		<dependency>
-		    <groupId>io.swagger</groupId>
-		    <artifactId>swagger-jaxrs</artifactId>
-		    <version>1.5.20</version>
-		</dependency>
-		<dependency>
-		    <groupId>io.swagger</groupId>
-		    <artifactId>swagger-annotations</artifactId>
-		    <version>1.5.20</version>
-		</dependency>
-				
-		<!-- Google Guava Tools  -->
-		<dependency>
-		    <groupId>com.google.guava</groupId>
-		    <artifactId>guava</artifactId>
-		    <version>26.0-jre</version>
-		</dependency>					    	
+		    <version>${springfox.version}</version>
+		</dependency>							    
 	</dependencies>
 
     <dependencyManagement>

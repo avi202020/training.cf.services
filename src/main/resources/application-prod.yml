@@ -1,4 +1,9 @@
 ---
+training:
+  app:
+    jwtSecret: jwtGrokonezSecretKey
+    jwtExpiration: 86400
+    
 management:            
   endpoints:
     enabled-by-default: false

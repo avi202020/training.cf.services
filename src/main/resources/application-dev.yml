@@ -4,6 +4,11 @@ info:
     description: Cloud Foundry MySQL Service Training
     name: training.cf.services
     version: 0.0.1-SNAPSHOT
+
+training:
+  app:
+    jwtSecret: jwtTrainingKey
+    jwtExpiration: 86400
     
 management:
   endpoint:
@@ -34,6 +39,6 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQL5InnoDBDialect
-    show-sql: true
+    show-sql: true 
   application:
     name: Training CF Services

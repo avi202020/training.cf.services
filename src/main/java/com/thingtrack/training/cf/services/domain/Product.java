@@ -18,17 +18,17 @@ import javax.persistence.GenerationType;
 import javax.persistence.Column;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.UniqueConstraint;
 
 import java.util.Date;
-import java.io.Serializable;
 
-@SuppressWarnings("serial")
 @Entity
-@Table(name = "product")
+@Table(name = "product", uniqueConstraints = {
+        @UniqueConstraint(columnNames = {"code"})})
 @EntityListeners(AuditingEntityListener.class)
 @JsonIgnoreProperties(value = {"createdAt", "updatedAt"}, allowGetters = true)
-@ApiModel(description = "Class representing a product.")
-public class Product implements Serializable {
+@ApiModel(description = "Class representing a Product.")
+public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -59,8 +59,7 @@ public class Product implements Serializable {
     @LastModifiedDate
     private Date updatedAt;
 
-    public Product() {        
-    }
+    public Product() {}
 
     public Product(String code, String description, float price, boolean active, Date createdAt) {        
         this.code = code;
